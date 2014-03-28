@@ -24,7 +24,7 @@ describe "Authentication" do
 			it { should_not have_selector('div.alert.alert-error') }
 		end
 
-	end
+	
 	describe "with valid information" do
 		let(:user) { FactoryGirl.create(:user) }
 		before do
@@ -38,4 +38,5 @@ describe "Authentication" do
 		it { should have_link('Sign out',    href: signout_path) }
 		it { should_not have_link('Sign in', href: signin_path) }
 	end
+end
 end
