@@ -9,13 +9,12 @@ before_action :correct_user,   only: [:edit, :update]
   	@user = User.new
   end
 
-   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_back_or user
+      def create
+   @user = User.new(user_params)    # Not the final implementation!
+     if @user.save
+        flash[:success] = "Welcome to the Peddie Note Sharing World!"
+       redirect_to @user
     else
-      flash.now[:error] = 'Invalid email/password combination'
       render 'new'
     end
   end
