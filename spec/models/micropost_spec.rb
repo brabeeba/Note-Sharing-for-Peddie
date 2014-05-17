@@ -26,5 +26,5 @@ describe Micropost do
   describe "with blank content" do
     before { @micropost.content = " " }
     it { should_not be_valid }
-  end
+  end 
 end
